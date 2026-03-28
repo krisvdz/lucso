@@ -1,31 +1,55 @@
-# Hi, I'm Kristen 👋
+# Lucso
 
-Full Stack Developer based in Porto, Portugal 🇵🇹  
-Currently at **Accenture Portugal**, building scalable web apps and levelling up on backend with Node.js.
+A cross-platform beauty app to discover, rate and find your favorite makeup products — built with Expo + React Native.
 
----
+## Features
 
-## 🛠 Tech Stack
+- **Home** — Browse brands and products with category filters and star ratings
+- **Feed** — Social posts with likes and comments (requires login)
+- **Map** — Interactive map of beauty stores in Porto with directions
+- **Profile** — Favorites list and mock authentication
 
-**Frontend**
-React · Vue.js · TypeScript · Tailwind CSS · Next.js
+## Tech Stack
 
-**Backend & APIs**
-Node.js · Express · Prisma · PostgreSQL · REST APIs
+- [Expo](https://expo.dev) + React Native (SDK 55)
+- [expo-router](https://expo.github.io/router) for file-based routing
+- TypeScript
+- [NativeWind v4](https://www.nativewind.dev) (Tailwind CSS for React Native)
+- [Zustand](https://zustand-demo.pmnd.rs) for state management
+- [Leaflet](https://leafletjs.com) for web maps / `react-native-maps` for mobile
+- Google Fonts: Playfair Display + Poppins
 
-**Tools**
-Docker · Git · Vitest · Postman · Rsbuild
+## Getting Started
 
----
+```bash
+npm install
+npx expo start
+```
 
-## 🎓 Background
+- Press `w` to open in browser
+- Scan QR code with Expo Go for mobile
 
-- MSc in Electrical & Computer Engineering — FEUP, Porto
-- Erasmus @ Deggendorf Institute of Technology, Germany
+## Deploy
 
----
+The web version is deployed via [Vercel](https://vercel.com). The `vercel.json` handles the build automatically.
 
-## 📫 Let's connect
+```bash
+npx expo export --platform web
+```
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-kristen--vidal-blue?style=flat&logo=linkedin)](https://linkedin.com/in/kristen-vidal)
-[![Email](https://img.shields.io/badge/Email-kristenvidaldiniz@gmail.com-red?style=flat&logo=gmail)](mailto:kristenvidaldiniz@gmail.com)
+Output goes to `dist/`.
+
+## Project Structure
+
+```
+app/              # Screens (expo-router)
+  (tabs)/         # Home, Feed, Map, Profile
+  product/[id]    # Product detail
+  brand/[id]      # Brand detail
+  auth/           # Login & Register
+components/       # UI and feature components
+constants/        # Colors, Fonts
+data/             # Mock data (products, brands, stores, posts)
+store/            # Zustand stores (auth, favorites, feed)
+types/            # TypeScript interfaces
+```
