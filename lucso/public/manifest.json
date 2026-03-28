@@ -1,0 +1,17 @@
+{
+  "name": "Lucso - Beauty & Makeup",
+  "short_name": "Lucso",
+  "description": "Discover, rate and find your favorite makeup products",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F5",
+  "theme_color": "#FFF9F5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }
+  ]
+}
