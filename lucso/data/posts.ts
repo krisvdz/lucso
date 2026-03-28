@@ -1,0 +1,86 @@
+import { FeedPost } from '@/types';
+
+export const posts: FeedPost[] = [
+  {
+    id: 'post1',
+    userId: 'u2',
+    userName: 'Ana M.',
+    caption: 'Just tried the new Rare Beauty Soft Pinch Blush and I\'m absolutely obsessed! The shade Joy gives the most natural flush. A tiny dot is all you need!',
+    likes: 124,
+    comments: [
+      { id: 'c1', userId: 'u3', userName: 'Sofia L.', text: 'Joy is so gorgeous! Have you tried Happy? It\'s my fave!', createdAt: '2026-01-15T11:30:00Z' },
+      { id: 'c2', userId: 'u4', userName: 'Maria C.', text: 'I need to try this! Where did you get it?', createdAt: '2026-01-15T12:00:00Z' },
+    ],
+    createdAt: '2026-01-15T10:00:00Z',
+    tags: ['rarebeauty', 'blush', 'motd'],
+    gradientColors: ['#F5B5C8', '#E88DA6'],
+  },
+  {
+    id: 'post2',
+    userId: 'u3',
+    userName: 'Sofia L.',
+    caption: 'My everyday makeup routine takes only 10 minutes! Foundation, concealer, blush, mascara, lip gloss - done. Keeping it simple but glam.',
+    likes: 89,
+    comments: [
+      { id: 'c3', userId: 'u2', userName: 'Ana M.', text: 'Love a quick routine! What foundation do you use?', createdAt: '2026-01-14T15:20:00Z' },
+    ],
+    createdAt: '2026-01-14T14:30:00Z',
+    tags: ['makeuprutine', 'everyday', 'natural'],
+    gradientColors: ['#F0DCC8', '#E8C8A8'],
+  },
+  {
+    id: 'post3',
+    userId: 'u4',
+    userName: 'Maria C.',
+    caption: 'Sephora haul! Got the Charlotte Tilbury Pillow Talk, Fenty Gloss Bomb, and the e.l.f. Power Grip Primer. My wallet is crying but my face is happy.',
+    likes: 203,
+    comments: [
+      { id: 'c4', userId: 'u3', userName: 'Sofia L.', text: 'The Power Grip Primer is SO good for the price!', createdAt: '2026-01-13T17:00:00Z' },
+      { id: 'c5', userId: 'u2', userName: 'Ana M.', text: 'Pillow Talk is a must-have! You\'ll love it!', createdAt: '2026-01-13T17:30:00Z' },
+      { id: 'c6', userId: 'u3', userName: 'Sofia L.', text: 'Which Sephora did you go to?', createdAt: '2026-01-13T18:00:00Z' },
+    ],
+    createdAt: '2026-01-13T16:00:00Z',
+    tags: ['sephorahaul', 'newmakeup', 'haul'],
+    gradientColors: ['#D4A574', '#C49060'],
+  },
+  {
+    id: 'post4',
+    userId: 'u2',
+    userName: 'Ana M.',
+    caption: 'Red lip appreciation post! MAC Ruby Woo will forever be THAT lipstick. Nothing beats a classic red lip for date night.',
+    likes: 167,
+    comments: [
+      { id: 'c7', userId: 'u4', userName: 'Maria C.', text: 'Ruby Woo is iconic! Have you tried the Retro Matte formula?', createdAt: '2026-01-12T20:00:00Z' },
+    ],
+    createdAt: '2026-01-12T19:00:00Z',
+    tags: ['redlip', 'mac', 'datenight'],
+    gradientColors: ['#C23B22', '#A83020'],
+  },
+  {
+    id: 'post5',
+    userId: 'u3',
+    userName: 'Sofia L.',
+    caption: 'Drugstore vs luxury: e.l.f. Camo Concealer ($7) vs NARS Radiant Creamy ($32). Honestly? The e.l.f. holds up surprisingly well! Full review coming soon.',
+    likes: 312,
+    comments: [
+      { id: 'c8', userId: 'u2', userName: 'Ana M.', text: 'I\'ve been saying this! e.l.f. is so underrated!', createdAt: '2026-01-11T13:00:00Z' },
+      { id: 'c9', userId: 'u4', userName: 'Maria C.', text: 'Can\'t wait for the full review! Do they crease the same?', createdAt: '2026-01-11T14:00:00Z' },
+    ],
+    createdAt: '2026-01-11T12:00:00Z',
+    tags: ['drugstorevsluxury', 'concealer', 'review'],
+    gradientColors: ['#A8C898', '#88B078'],
+  },
+  {
+    id: 'post6',
+    userId: 'u4',
+    userName: 'Maria C.',
+    caption: 'Found the cutest little beauty shop in Porto near Santa Catarina! They had Tower 28 products which I\'ve been wanting to try forever. Clean beauty fans, check it out!',
+    likes: 95,
+    comments: [
+      { id: 'c10', userId: 'u3', userName: 'Sofia L.', text: 'Omg where exactly? I need to go!', createdAt: '2026-01-10T16:30:00Z' },
+    ],
+    createdAt: '2026-01-10T15:30:00Z',
+    tags: ['porto', 'cleanbeauty', 'tower28'],
+    gradientColors: ['#A8DDD0', '#88C8B8'],
+  },
+];
