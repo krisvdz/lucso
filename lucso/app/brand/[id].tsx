@@ -2,6 +2,7 @@ import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { StarRating } from '@/components/ui/StarRating';
 import { Badge } from '@/components/ui/Badge';
 import { ProductCard } from '@/components/home/ProductCard';
@@ -82,16 +83,17 @@ const styles = StyleSheet.create({
   },
   logoText: {
     fontSize: 36,
-    fontWeight: '700',
+    fontFamily: Fonts.heading,
     color: '#FFFFFF',
   },
   name: {
     fontSize: 28,
-    fontWeight: '800',
+    fontFamily: Fonts.heading,
     color: Colors.text,
   },
   tagline: {
     fontSize: 15,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     marginTop: 4,
     textAlign: 'center',
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: Fonts.heading,
     color: Colors.text,
     marginBottom: 12,
   },

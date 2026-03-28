@@ -1,5 +1,6 @@
 import { ScrollView, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { categories, CategoryItem } from '@/data/categories';
 
 interface CategoryPillsProps {
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: Fonts.bodyMedium,
     color: Colors.textSecondary,
   },
   textActive: {

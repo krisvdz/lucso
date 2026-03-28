@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 
 interface StarRatingProps {
   rating: number;
@@ -25,12 +26,12 @@ export function StarRating({ rating, size = 16, showValue = true, reviewCount }:
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
       {stars}
       {showValue && (
-        <Text style={{ fontSize: size * 0.8, color: Colors.text, fontWeight: '600', marginLeft: 4 }}>
+        <Text style={{ fontSize: size * 0.8, color: Colors.text, fontFamily: Fonts.bodySemiBold, marginLeft: 4 }}>
           {rating.toFixed(1)}
         </Text>
       )}
       {reviewCount !== undefined && (
-        <Text style={{ fontSize: size * 0.75, color: Colors.textSecondary }}>
+        <Text style={{ fontSize: size * 0.75, color: Colors.textSecondary, fontFamily: Fonts.body }}>
           ({reviewCount.toLocaleString()})
         </Text>
       )}

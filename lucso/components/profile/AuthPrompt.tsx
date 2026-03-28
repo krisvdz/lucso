@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { Button } from '@/components/ui/Button';
+import { LucsoLogo } from '@/components/ui/LucsoLogo';
 
 interface AuthPromptProps {
   onLogin: () => void;
@@ -11,9 +12,7 @@ interface AuthPromptProps {
 export function AuthPrompt({ onLogin, onRegister }: AuthPromptProps) {
   return (
     <View style={styles.container}>
-      <View style={styles.iconCircle}>
-        <Ionicons name="sparkles" size={40} color={Colors.rose} />
-      </View>
+      <LucsoLogo size={64} showText={false} />
       <Text style={styles.title}>Join Lucso</Text>
       <Text style={styles.subtitle}>
         Sign in to save your favorite products, post your looks, and join the beauty community.
@@ -32,23 +31,16 @@ const styles = StyleSheet.create({
     padding: 32,
     paddingTop: 60,
   },
-  iconCircle: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: Colors.roseLight,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 24,
-  },
   title: {
     fontSize: 28,
-    fontWeight: '800',
+    fontFamily: Fonts.heading,
     color: Colors.text,
+    marginTop: 16,
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 15,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     textAlign: 'center',
     lineHeight: 22,

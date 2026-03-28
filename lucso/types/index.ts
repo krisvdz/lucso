@@ -30,6 +30,7 @@ export interface Product {
   rating: number;
   reviewCount: number;
   description: string;
+  image: string;
   shades?: string[];
   whereToBuy: string[];
   gradientColors: [string, string];
@@ -50,6 +51,7 @@ export interface FeedPost {
   id: string;
   userId: string;
   userName: string;
+  image: string;
   caption: string;
   likes: number;
   comments: Comment[];

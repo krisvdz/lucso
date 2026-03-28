@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { Avatar } from '@/components/ui/Avatar';
 import { User } from '@/types';
 
@@ -37,12 +38,13 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 24,
-    fontWeight: '700',
+    fontFamily: Fonts.heading,
     color: Colors.text,
     marginTop: 12,
   },
   bio: {
     fontSize: 14,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     marginTop: 4,
   },
@@ -57,11 +59,12 @@ const styles = StyleSheet.create({
   },
   statNumber: {
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: Fonts.bodyBold,
     color: Colors.text,
   },
   statLabel: {
     fontSize: 13,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     marginTop: 2,
   },

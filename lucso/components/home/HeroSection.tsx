@@ -1,12 +1,13 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
+import { LucsoLogo } from '@/components/ui/LucsoLogo';
 
 export function HeroSection() {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to</Text>
-      <Text style={styles.title}>Lucso</Text>
+      <LucsoLogo size={44} textSize={34} />
       <Text style={styles.subtitle}>Discover your next favorite beauty product</Text>
       <View style={styles.searchContainer}>
         <Ionicons name="search" size={20} color={Colors.textSecondary} />
@@ -25,23 +26,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 16,
     paddingBottom: 24,
-  },
-  welcome: {
-    fontSize: 16,
-    color: Colors.textSecondary,
-    fontWeight: '500',
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: '800',
-    color: Colors.rose,
-    marginBottom: 4,
-    letterSpacing: -0.5,
+    gap: 8,
   },
   subtitle: {
     fontSize: 15,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
-    marginBottom: 20,
+    marginBottom: 12,
   },
   searchContainer: {
     flexDirection: 'row',
@@ -57,6 +48,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 15,
+    fontFamily: Fonts.body,
     color: Colors.text,
   },
 });

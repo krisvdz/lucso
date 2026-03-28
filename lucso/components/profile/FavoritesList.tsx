@@ -1,6 +1,6 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { StarRating } from '@/components/ui/StarRating';
 import { products } from '@/data/products';
 
@@ -32,12 +32,7 @@ export function FavoritesList({ favoriteIds, onProductPress }: FavoritesListProp
             onPress={() => onProductPress(product.id)}
             activeOpacity={0.7}
           >
-            <LinearGradient
-              colors={product.gradientColors}
-              style={styles.image}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-            />
+            <Image source={{ uri: product.image }} style={styles.image} />
             <View style={styles.info}>
               <Text style={styles.name} numberOfLines={1}>{product.name}</Text>
               <Text style={styles.brand}>{product.brandName}</Text>
@@ -56,7 +51,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: '700',
+    fontFamily: Fonts.heading,
     color: Colors.text,
     marginBottom: 12,
   },
@@ -76,6 +71,8 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 100,
+    width: '100%',
+    resizeMode: 'cover',
   },
   info: {
     padding: 8,
@@ -83,11 +80,12 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 13,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.text,
   },
   brand: {
     fontSize: 11,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
   },
   empty: {
@@ -97,11 +95,12 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.text,
   },
   emptySubtext: {
     fontSize: 14,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     textAlign: 'center',
     marginTop: 4,

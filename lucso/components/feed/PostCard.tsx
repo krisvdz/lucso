@@ -1,7 +1,8 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { Avatar } from '@/components/ui/Avatar';
 import { FeedPost } from '@/types';
 
@@ -39,12 +40,18 @@ export function PostCard({ post, onLike, onComment, liked = false }: PostCardPro
         </View>
       </View>
 
-      <LinearGradient
-        colors={post.gradientColors}
-        style={styles.image}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      />
+      <View style={styles.imageContainer}>
+        {post.image ? (
+          <Image source={{ uri: post.image }} style={styles.image} />
+        ) : (
+          <LinearGradient
+            colors={post.gradientColors}
+            style={styles.image}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          />
+        )}
+      </View>
 
       <View style={styles.actions}>
         <TouchableOpacity onPress={onLike} style={styles.actionButton}>
@@ -101,16 +108,23 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontSize: 15,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.text,
   },
   time: {
     fontSize: 12,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
+  },
+  imageContainer: {
+    width: '100%',
+    height: 300,
+    backgroundColor: Colors.surfaceDim,
   },
   image: {
     width: '100%',
-    height: 280,
+    height: '100%',
+    resizeMode: 'cover',
   },
   actions: {
     flexDirection: 'row',
@@ -125,30 +139,32 @@ const styles = StyleSheet.create({
   },
   actionText: {
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: Fonts.bodyMedium,
     color: Colors.text,
   },
   caption: {
     paddingHorizontal: 12,
     paddingTop: 8,
     fontSize: 14,
+    fontFamily: Fonts.body,
     color: Colors.text,
     lineHeight: 20,
   },
   captionName: {
-    fontWeight: '700',
+    fontFamily: Fonts.bodyBold,
   },
   tags: {
     paddingHorizontal: 12,
     paddingTop: 4,
     fontSize: 13,
+    fontFamily: Fonts.bodyMedium,
     color: Colors.rose,
-    fontWeight: '500',
   },
   viewComments: {
     paddingHorizontal: 12,
     paddingTop: 6,
     fontSize: 13,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
   },
 });

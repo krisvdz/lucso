@@ -1,9 +1,10 @@
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { StarRating } from '@/components/ui/StarRating';
 import { Badge } from '@/components/ui/Badge';
 import { Avatar } from '@/components/ui/Avatar';
@@ -45,12 +46,13 @@ export default function ProductDetailScreen() {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <LinearGradient
-          colors={product.gradientColors}
-          style={styles.hero}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-        />
+        <View style={styles.heroContainer}>
+          <Image source={{ uri: product.image }} style={styles.heroImage} />
+          <LinearGradient
+            colors={['transparent', 'rgba(0,0,0,0.2)']}
+            style={StyleSheet.absoluteFillObject}
+          />
+        </View>
 
         <View style={styles.content}>
           <View style={styles.header}>
@@ -141,13 +143,20 @@ const styles = StyleSheet.create({
   },
   errorText: {
     fontSize: 16,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     textAlign: 'center',
     marginTop: 100,
   },
-  hero: {
-    height: 300,
+  heroContainer: {
+    height: 320,
     width: '100%',
+    backgroundColor: Colors.surfaceDim,
+  },
+  heroImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   content: {
     paddingHorizontal: 20,
@@ -168,19 +177,19 @@ const styles = StyleSheet.create({
   },
   brand: {
     fontSize: 14,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.rose,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   name: {
     fontSize: 24,
-    fontWeight: '800',
+    fontFamily: Fonts.heading,
     color: Colors.text,
   },
   price: {
     fontSize: 24,
-    fontWeight: '800',
+    fontFamily: Fonts.heading,
     color: Colors.gold,
     marginLeft: 16,
   },
@@ -189,7 +198,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 17,
-    fontWeight: '700',
+    fontFamily: Fonts.heading,
     color: Colors.text,
     marginBottom: 10,
   },
@@ -200,6 +209,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 15,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     lineHeight: 22,
   },
@@ -217,11 +227,12 @@ const styles = StyleSheet.create({
   },
   storeName: {
     fontSize: 15,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.text,
   },
   storeAddress: {
     fontSize: 13,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
     marginTop: 2,
   },
@@ -240,15 +251,17 @@ const styles = StyleSheet.create({
   },
   reviewerName: {
     fontSize: 14,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.text,
   },
   reviewDate: {
     fontSize: 12,
+    fontFamily: Fonts.body,
     color: Colors.textLight,
   },
   reviewText: {
     fontSize: 14,
+    fontFamily: Fonts.body,
     color: Colors.text,
     lineHeight: 20,
   },
@@ -260,6 +273,7 @@ const styles = StyleSheet.create({
   },
   helpfulText: {
     fontSize: 12,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
   },
   bottomBar: {

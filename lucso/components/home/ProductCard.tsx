@@ -1,7 +1,8 @@
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { StarRating } from '@/components/ui/StarRating';
 import { Product } from '@/types';
 import { useAuthStore } from '@/store/useAuthStore';
@@ -28,12 +29,12 @@ export function ProductCard({ product, onPress, onAuthRequired }: ProductCardPro
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.card} activeOpacity={0.7}>
-      <LinearGradient
-        colors={product.gradientColors}
-        style={styles.image}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      >
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: product.image }} style={styles.image} />
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.15)']}
+          style={StyleSheet.absoluteFillObject}
+        />
         <TouchableOpacity onPress={handleFavorite} style={styles.heartButton}>
           <Ionicons
             name={isFavorite ? 'heart' : 'heart-outline'}
@@ -41,7 +42,7 @@ export function ProductCard({ product, onPress, onAuthRequired }: ProductCardPro
             color={isFavorite ? Colors.rose : '#FFFFFF'}
           />
         </TouchableOpacity>
-      </LinearGradient>
+      </View>
       <View style={styles.info}>
         <Text style={styles.brand}>{product.brandName}</Text>
         <Text style={styles.name} numberOfLines={1}>{product.name}</Text>
@@ -69,17 +70,23 @@ const styles = StyleSheet.create({
     elevation: 2,
     marginBottom: 12,
   },
+  imageContainer: {
+    height: 160,
+    backgroundColor: Colors.surfaceDim,
+  },
   image: {
-    height: 140,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end',
-    padding: 8,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   heartButton: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: 'rgba(0,0,0,0.15)',
+    backgroundColor: 'rgba(0,0,0,0.2)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -89,14 +96,14 @@ const styles = StyleSheet.create({
   },
   brand: {
     fontSize: 11,
+    fontFamily: Fonts.bodyMedium,
     color: Colors.textSecondary,
-    fontWeight: '500',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   name: {
     fontSize: 14,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.text,
   },
   row: {
@@ -107,7 +114,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 15,
-    fontWeight: '700',
+    fontFamily: Fonts.bodyBold,
     color: Colors.gold,
   },
 });

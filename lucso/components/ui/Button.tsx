@@ -1,5 +1,6 @@
 import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 
 interface ButtonProps {
   title: string;
@@ -51,6 +52,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
   },
 });

@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { Button } from '@/components/ui/Button';
+import { LucsoLogo } from '@/components/ui/LucsoLogo';
 import { useAuthStore } from '@/store/useAuthStore';
 
 export default function LoginScreen() {
@@ -23,7 +25,7 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.logo}>Lucso</Text>
+        <LucsoLogo size={52} textSize={40} />
         <Text style={styles.subtitle}>Welcome back</Text>
       </View>
 
@@ -80,16 +82,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 40,
   },
-  logo: {
-    fontSize: 40,
-    fontWeight: '800',
-    color: Colors.rose,
-    letterSpacing: -0.5,
-  },
   subtitle: {
     fontSize: 16,
+    fontFamily: Fonts.body,
     color: Colors.textSecondary,
-    marginTop: 4,
+    marginTop: 8,
   },
   form: {
     gap: 16,
@@ -99,7 +96,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    fontWeight: '600',
+    fontFamily: Fonts.bodySemiBold,
     color: Colors.text,
   },
   input: {
@@ -110,6 +107,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
     fontSize: 16,
+    fontFamily: Fonts.body,
     color: Colors.text,
   },
 });

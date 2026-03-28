@@ -3,6 +3,7 @@ import { ScrollView, View, Text, FlatList, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { HeroSection } from '@/components/home/HeroSection';
 import { CategoryPills } from '@/components/home/CategoryPills';
 import { BrandCard } from '@/components/home/BrandCard';
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: Fonts.heading,
     color: Colors.text,
     paddingHorizontal: 20,
     marginBottom: 12,
