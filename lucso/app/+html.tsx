@@ -31,18 +31,25 @@ export default function Root({ children }: PropsWithChildren) {
         <ScrollViewStyleReset />
 
         <style dangerouslySetInnerHTML={{ __html: `
-          html, body, #root {
-            height: 100%;
+          html, body {
+            min-height: 100%;
             margin: 0;
             padding: 0;
             background-color: #F0E4EB;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
           }
 
+          body {
+            min-height: 100dvh;
+          }
+
           /* Mobile-first container: cap at phone width, center on desktop */
           #root {
+            min-height: 100dvh;
+            width: 100%;
             max-width: 430px;
             margin: 0 auto;
             position: relative;
@@ -54,6 +61,7 @@ export default function Root({ children }: PropsWithChildren) {
           @media (max-width: 430px) {
             #root {
               max-width: 100%;
+              min-height: 100dvh;
               box-shadow: none;
             }
           }
