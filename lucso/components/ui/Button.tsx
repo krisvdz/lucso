@@ -24,6 +24,8 @@ export function Button({ title, onPress, variant = 'primary', fullWidth = false,
     <TouchableOpacity
       onPress={onPress}
       disabled={disabled}
+      accessibilityRole="button"
+      accessibilityState={{ disabled }}
       style={[
         styles.button,
         {
