@@ -18,7 +18,7 @@ export function Button({ title, onPress, variant = 'primary', fullWidth = false,
     outline: { bg: 'transparent', text: Colors.rose, border: Colors.rose },
   };
 
-  const v = variantStyles[variant];
+  const variantStyle = variantStyles[variant];
 
   return (
     <TouchableOpacity
@@ -29,8 +29,8 @@ export function Button({ title, onPress, variant = 'primary', fullWidth = false,
       style={[
         styles.button,
         {
-          backgroundColor: v.bg,
-          borderColor: v.border,
+          backgroundColor: variantStyle.bg,
+          borderColor: variantStyle.border,
           opacity: disabled ? 0.5 : 1,
           alignSelf: fullWidth ? 'stretch' : 'auto',
         },
@@ -38,7 +38,7 @@ export function Button({ title, onPress, variant = 'primary', fullWidth = false,
       ]}
       activeOpacity={0.7}
     >
-      <Text style={[styles.text, { color: v.text }]}>{title}</Text>
+      <Text style={[styles.text, { color: variantStyle.text }]}>{title}</Text>
     </TouchableOpacity>
   );
 }
