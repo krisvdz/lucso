@@ -15,6 +15,7 @@ export const Colors = {
   error: '#E74C3C',
   success: '#27AE60',
   warning: '#F39C12',
+  info: '#2E86C1',
   tabActive: '#E8A0BF',
   tabInactive: '#B8A5B0',
 };
