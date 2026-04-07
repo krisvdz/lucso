@@ -19,4 +19,5 @@ export const Colors = {
   tabActive: '#E8A0BF',
   tabInactive: '#B8A5B0',
   overlay: 'rgba(45, 32, 36, 0.5)',
+  disabled: '#D9CDD4',
 };
