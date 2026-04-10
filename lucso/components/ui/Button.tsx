@@ -11,13 +11,13 @@ interface ButtonProps {
   style?: ViewStyle;
 }
 
-export function Button({ title, onPress, variant = 'primary', fullWidth = false, disabled = false, style }: ButtonProps) {
-  const variantStyles = {
-    primary: { bg: Colors.rose, text: '#FFFFFF', border: Colors.rose },
-    secondary: { bg: Colors.gold, text: '#FFFFFF', border: Colors.gold },
-    outline: { bg: 'transparent', text: Colors.rose, border: Colors.rose },
-  };
+const variantStyles = {
+  primary: { bg: Colors.rose, text: '#FFFFFF', border: Colors.rose },
+  secondary: { bg: Colors.gold, text: '#FFFFFF', border: Colors.gold },
+  outline: { bg: 'transparent', text: Colors.rose, border: Colors.rose },
+};
 
+export function Button({ title, onPress, variant = 'primary', fullWidth = false, disabled = false, style }: ButtonProps) {
   const variantStyle = variantStyles[variant];
 
   return (
