@@ -21,4 +21,5 @@ export const Colors = {
   overlay: 'rgba(45, 32, 36, 0.5)',
   disabled: '#D9CDD4',
   divider: '#EDE0E8',
+  transparent: 'transparent',
 };
