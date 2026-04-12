@@ -11,16 +11,16 @@ interface StarRatingProps {
 }
 
 export function StarRating({ rating, size = 16, showValue = true, reviewCount }: StarRatingProps) {
-  const stars = [];
-  for (let i = 1; i <= 5; i++) {
-    if (rating >= i) {
-      stars.push(<Ionicons key={i} name="star" size={size} color={Colors.star} />);
-    } else if (rating >= i - 0.5) {
-      stars.push(<Ionicons key={i} name="star-half" size={size} color={Colors.star} />);
+  const stars = Array.from({ length: 5 }, (_, i) => {
+    const index = i + 1;
+    if (rating >= index) {
+      return <Ionicons key={index} name="star" size={size} color={Colors.star} />;
+    } else if (rating >= index - 0.5) {
+      return <Ionicons key={index} name="star-half" size={size} color={Colors.star} />;
     } else {
-      stars.push(<Ionicons key={i} name="star-outline" size={size} color={Colors.star} />);
+      return <Ionicons key={index} name="star-outline" size={size} color={Colors.star} />;
     }
-  }
+  });
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
