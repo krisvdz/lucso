@@ -7,4 +7,5 @@ export const Fonts = {
   bodySemiBold: 'Poppins_600SemiBold',
   bodyBold: 'Poppins_700Bold',
   bodyLight: 'Poppins_300Light',
+  bodyItalic: 'Poppins_400Regular_Italic',
 };
