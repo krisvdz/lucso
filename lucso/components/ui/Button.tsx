@@ -12,9 +12,9 @@ interface ButtonProps {
 }
 
 const variantStyles = {
-  primary: { bg: Colors.rose, text: '#FFFFFF', border: Colors.rose },
-  secondary: { bg: Colors.gold, text: '#FFFFFF', border: Colors.gold },
-  outline: { bg: 'transparent', text: Colors.rose, border: Colors.rose },
+  primary: { bg: Colors.rose, text: Colors.surface, border: Colors.rose },
+  secondary: { bg: Colors.gold, text: Colors.surface, border: Colors.gold },
+  outline: { bg: Colors.transparent, text: Colors.rose, border: Colors.rose },
 };
 
 export function Button({ title, onPress, variant = 'primary', fullWidth = false, disabled = false, style }: ButtonProps) {
