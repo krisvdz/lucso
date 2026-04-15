@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 
 interface BadgeProps {
   label: string;
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 13,
-    fontWeight: '500',
+    fontFamily: Fonts.bodyMedium,
     color: Colors.text,
   },
   smallText: {
