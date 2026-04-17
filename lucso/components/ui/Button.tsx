@@ -9,6 +9,7 @@ interface ButtonProps {
   fullWidth?: boolean;
   disabled?: boolean;
   style?: ViewStyle;
+  accessibilityLabel?: string;
 }
 
 const variantStyles = {
@@ -17,7 +18,7 @@ const variantStyles = {
   outline: { bg: Colors.transparent, text: Colors.rose, border: Colors.rose },
 };
 
-export function Button({ title, onPress, variant = 'primary', fullWidth = false, disabled = false, style }: ButtonProps) {
+export function Button({ title, onPress, variant = 'primary', fullWidth = false, disabled = false, style, accessibilityLabel }: ButtonProps) {
   const variantStyle = variantStyles[variant];
 
   return (
@@ -25,6 +26,7 @@ export function Button({ title, onPress, variant = 'primary', fullWidth = false,
       onPress={onPress}
       disabled={disabled}
       accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel ?? title}
       accessibilityState={{ disabled }}
       style={[
         styles.button,
