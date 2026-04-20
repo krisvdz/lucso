@@ -5,13 +5,14 @@ import { Fonts } from '@/constants/Fonts';
 interface BadgeProps {
   label: string;
   color?: string;
+  textColor?: string;
   small?: boolean;
 }
 
-export function Badge({ label, color = Colors.roseLight, small = false }: BadgeProps) {
+export function Badge({ label, color = Colors.roseLight, textColor = Colors.text, small = false }: BadgeProps) {
   return (
     <View style={[styles.badge, { backgroundColor: color }, small && styles.small]}>
-      <Text style={[styles.text, small && styles.smallText]}>{label}</Text>
+      <Text style={[styles.text, { color: textColor }, small && styles.smallText]}>{label}</Text>
     </View>
   );
 }
