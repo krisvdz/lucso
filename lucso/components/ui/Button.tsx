@@ -6,6 +6,7 @@ interface ButtonProps {
   title: string;
   onPress: () => void;
   variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   disabled?: boolean;
   style?: ViewStyle;
@@ -18,8 +19,15 @@ const variantStyles = {
   outline: { bg: Colors.transparent, text: Colors.rose, border: Colors.rose },
 };
 
-export function Button({ title, onPress, variant = 'primary', fullWidth = false, disabled = false, style, accessibilityLabel }: ButtonProps) {
+const sizeStyles = {
+  sm: { paddingHorizontal: 16, paddingVertical: 8, fontSize: 14 },
+  md: { paddingHorizontal: 24, paddingVertical: 14, fontSize: 16 },
+  lg: { paddingHorizontal: 32, paddingVertical: 18, fontSize: 18 },
+};
+
+export function Button({ title, onPress, variant = 'primary', size = 'md', fullWidth = false, disabled = false, style, accessibilityLabel }: ButtonProps) {
   const variantStyle = variantStyles[variant];
+  const sz = sizeStyles[size];
 
   return (
     <TouchableOpacity
@@ -35,27 +43,26 @@ export function Button({ title, onPress, variant = 'primary', fullWidth = false,
           borderColor: variantStyle.border,
           opacity: disabled ? 0.5 : 1,
           alignSelf: fullWidth ? 'stretch' : 'auto',
+          paddingHorizontal: sz.paddingHorizontal,
+          paddingVertical: sz.paddingVertical,
         },
         style,
       ]}
       activeOpacity={0.7}
     >
-      <Text style={[styles.text, { color: variantStyle.text }]}>{title}</Text>
+      <Text style={[styles.text, { color: variantStyle.text, fontSize: sz.fontSize }]}>{title}</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
-    paddingHorizontal: 24,
-    paddingVertical: 14,
     borderRadius: 12,
     borderWidth: 1.5,
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
-    fontSize: 16,
     fontFamily: Fonts.bodySemiBold,
   },
 });
