@@ -18,6 +18,8 @@ export interface Brand {
   productCount: number;
   category: 'luxury' | 'drugstore' | 'indie' | 'clean';
   color: string;
+  isVerified?: boolean;
+  logoUrl?: string;
 }
 
 export interface Product {
@@ -66,6 +68,7 @@ export interface Comment {
   userName: string;
   text: string;
   createdAt: string;
+  likes?: number;
 }
 
 export interface Store {
@@ -86,4 +89,6 @@ export interface User {
   bio: string;
   postCount: number;
   color: string;
+  avatarUrl?: string;
+  followerCount?: number;
 }
