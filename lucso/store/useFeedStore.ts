@@ -4,20 +4,30 @@ import { posts as initialPosts } from '@/data/posts';
 
 interface FeedState {
   posts: FeedPost[];
-  likePost: (postId: string) => void;
+  likedPostIds: Set<string>;
+  toggleLike: (postId: string) => void;
+  isLiked: (postId: string) => boolean;
   addComment: (postId: string, comment: Comment) => void;
 }
 
-export const useFeedStore = create<FeedState>((set) => ({
+export const useFeedStore = create<FeedState>((set, get) => ({
   posts: initialPosts,
+  likedPostIds: new Set(),
 
-  likePost: (postId: string) => {
+  toggleLike: (postId: string) => {
+    const { likedPostIds } = get();
+    const liked = likedPostIds.has(postId);
+    const updatedIds = new Set(likedPostIds);
+    liked ? updatedIds.delete(postId) : updatedIds.add(postId);
     set((state) => ({
+      likedPostIds: updatedIds,
       posts: state.posts.map((post) =>
-        post.id === postId ? { ...post, likes: post.likes + 1 } : post
+        post.id === postId ? { ...post, likes: post.likes + (liked ? -1 : 1) } : post
       ),
     }));
   },
+
+  isLiked: (postId: string) => get().likedPostIds.has(postId),
 
   addComment: (postId: string, comment: Comment) => {
     set((state) => ({
