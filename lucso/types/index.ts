@@ -10,6 +10,8 @@ export type ProductCategory =
   | 'primer'
   | 'setting-spray';
 
+export type GradientColors = [string, string];
+
 export interface Brand {
   id: string;
   name: string;
@@ -35,7 +37,7 @@ export interface Product {
   image: string;
   shades?: string[];
   whereToBuy: string[];
-  gradientColors: [string, string];
+  gradientColors: GradientColors;
 }
 
 export interface Review {
@@ -59,7 +61,7 @@ export interface FeedPost {
   comments: Comment[];
   createdAt: string;
   tags: string[];
-  gradientColors: [string, string];
+  gradientColors: GradientColors;
 }
 
 export interface Comment {
