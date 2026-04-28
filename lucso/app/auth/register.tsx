@@ -19,7 +19,7 @@ export default function RegisterScreen() {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
-    register(name, email, password);
+    register(name.trim(), email.trim(), password);
     router.back();
   };
 
@@ -38,6 +38,9 @@ export default function RegisterScreen() {
             onChangeText={setName}
             placeholder="Your name"
             placeholderTextColor={Colors.textLight}
+            autoComplete="name"
+            textContentType="name"
+            returnKeyType="next"
             style={styles.input}
           />
         </View>
@@ -51,6 +54,10 @@ export default function RegisterScreen() {
             placeholderTextColor={Colors.textLight}
             keyboardType="email-address"
             autoCapitalize="none"
+            autoCorrect={false}
+            autoComplete="email"
+            textContentType="emailAddress"
+            returnKeyType="next"
             style={styles.input}
           />
         </View>
@@ -63,6 +70,11 @@ export default function RegisterScreen() {
             placeholder="Create a password"
             placeholderTextColor={Colors.textLight}
             secureTextEntry
+            autoCorrect={false}
+            autoComplete="new-password"
+            textContentType="newPassword"
+            returnKeyType="go"
+            onSubmitEditing={handleRegister}
             style={styles.input}
           />
         </View>
