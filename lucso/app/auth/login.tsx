@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
-import { useRouter } from 'expo-router';
-import { Colors } from '@/constants/Colors';
-import { Fonts } from '@/constants/Fonts';
 import { Button } from '@/components/ui/Button';
 import { LucsoLogo } from '@/components/ui/LucsoLogo';
+import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 import { useAuthStore } from '@/store/useAuthStore';
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function LoginScreen() {
   const router = useRouter();
