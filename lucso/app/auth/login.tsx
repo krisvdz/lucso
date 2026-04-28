@@ -18,7 +18,7 @@ export default function LoginScreen() {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
-    login(email, password);
+    login(email.trim(), password);
     router.back();
   };
 
@@ -39,6 +39,10 @@ export default function LoginScreen() {
             placeholderTextColor={Colors.textLight}
             keyboardType="email-address"
             autoCapitalize="none"
+            autoCorrect={false}
+            autoComplete="email"
+            textContentType="emailAddress"
+            returnKeyType="next"
             style={styles.input}
           />
         </View>
@@ -51,6 +55,11 @@ export default function LoginScreen() {
             placeholder="Your password"
             placeholderTextColor={Colors.textLight}
             secureTextEntry
+            autoCorrect={false}
+            autoComplete="password"
+            textContentType="password"
+            returnKeyType="go"
+            onSubmitEditing={handleLogin}
             style={styles.input}
           />
         </View>
