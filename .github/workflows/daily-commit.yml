@@ -1,0 +1,34 @@
+name: Daily Commit
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # 09:00 UTC daily
+  workflow_dispatch:
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update build date
+        run: |
+          DATE=$(date -u +"%Y-%m-%d")
+          cat > lucso/constants/Build.ts << EOF
+          export const Build = {
+            date: '$DATE',
+          };
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add lucso/constants/Build.ts
+          git diff --cached --quiet || git commit -m "chore: update build date $(date -u +"%Y-%m-%d")"
+          git push origin main

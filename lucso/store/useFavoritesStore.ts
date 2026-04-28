@@ -11,11 +11,12 @@ export const useFavoritesStore = create<FavoritesState>((set, get) => ({
 
   toggleFavorite: (productId: string) => {
     const { favoriteIds } = get();
-    if (favoriteIds.includes(productId)) {
-      set({ favoriteIds: favoriteIds.filter((id) => id !== productId) });
-    } else {
-      set({ favoriteIds: [...favoriteIds, productId] });
-    }
+    const isFav = favoriteIds.includes(productId);
+    set({
+      favoriteIds: isFav
+        ? favoriteIds.filter((id) => id !== productId)
+        : [...favoriteIds, productId],
+    });
   },
 
   isFavorite: (productId: string) => {

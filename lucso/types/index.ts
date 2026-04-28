@@ -10,6 +10,8 @@ export type ProductCategory =
   | 'primer'
   | 'setting-spray';
 
+export type GradientColors = [string, string];
+
 export interface Brand {
   id: string;
   name: string;
@@ -18,6 +20,8 @@ export interface Brand {
   productCount: number;
   category: 'luxury' | 'drugstore' | 'indie' | 'clean';
   color: string;
+  isVerified?: boolean;
+  logoUrl?: string;
 }
 
 export interface Product {
@@ -33,7 +37,7 @@ export interface Product {
   image: string;
   shades?: string[];
   whereToBuy: string[];
-  gradientColors: [string, string];
+  gradientColors: GradientColors;
 }
 
 export interface Review {
@@ -57,7 +61,7 @@ export interface FeedPost {
   comments: Comment[];
   createdAt: string;
   tags: string[];
-  gradientColors: [string, string];
+  gradientColors: GradientColors;
 }
 
 export interface Comment {
@@ -66,6 +70,7 @@ export interface Comment {
   userName: string;
   text: string;
   createdAt: string;
+  likes?: number;
 }
 
 export interface Store {
@@ -86,4 +91,6 @@ export interface User {
   bio: string;
   postCount: number;
   color: string;
+  avatarUrl?: string;
+  followerCount?: number;
 }

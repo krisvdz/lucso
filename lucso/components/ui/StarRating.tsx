@@ -10,21 +10,18 @@ interface StarRatingProps {
   reviewCount?: number;
 }
 
-export function StarRating({ rating, size = 16, showValue = true, reviewCount }: StarRatingProps) {
-  const stars = [];
-  for (let i = 1; i <= 5; i++) {
-    if (rating >= i) {
-      stars.push(<Ionicons key={i} name="star" size={size} color={Colors.star} />);
-    } else if (rating >= i - 0.5) {
-      stars.push(<Ionicons key={i} name="star-half" size={size} color={Colors.star} />);
-    } else {
-      stars.push(<Ionicons key={i} name="star-outline" size={size} color={Colors.star} />);
-    }
-  }
+function getStarName(rating: number, index: number): 'star' | 'star-half' | 'star-outline' {
+  if (rating >= index) return 'star';
+  if (rating >= index - 0.5) return 'star-half';
+  return 'star-outline';
+}
 
+export function StarRating({ rating, size = 16, showValue = true, reviewCount }: StarRatingProps) {
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-      {stars}
+      {Array.from({ length: 5 }, (_, i) => (
+        <Ionicons key={i} name={getStarName(rating, i + 1)} size={size} color={Colors.star} />
+      ))}
       {showValue && (
         <Text style={{ fontSize: size * 0.8, color: Colors.text, fontFamily: Fonts.bodySemiBold, marginLeft: 4 }}>
           {rating.toFixed(1)}
