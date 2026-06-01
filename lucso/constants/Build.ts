@@ -1,3 +1,3 @@
 export const Build = {
-  date: '2026-05-31',
+  date: '2026-06-01',
 };
